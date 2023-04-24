@@ -49,7 +49,7 @@
 
       </div>
 
-      <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="0">
+      <input type="range" class="volume-slider" min="0" max="1" step="0.1" value="1">
       <!-- <span class="volume-value">50%</span> -->
 
       <!-- Control -->
@@ -126,14 +126,15 @@
       const volumeSlider = $('.volume-slider')
       const currentTimeRunSong = $('.current-time')
       const sumTimeSong = $('.duration')
-
+     
       const app = {
         currentIndex: 0,
         isPlaying: false,
         isRandom: false,
         isRepeat: false,
         playedIndexes: [],
-        currentVolume: 0,
+        currentVolume: 1,
+        
         // config: {},
         config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
 
@@ -443,6 +444,7 @@
 
         },
 
+        // Load những giá trị đã lưu trong phiên sử dụng trước
         loadConfig: function () {
 
           this.isRandom = this.config.isRandom
@@ -493,7 +495,7 @@
 
 
           // Gán cấu hình từ config vào ứng dụng
-          this.loadConfig();
+          //this.loadConfig();
 
           // Định nghĩa các thuộc tính cho object
           this.defineProperties();
